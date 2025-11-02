@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Emotion Detection</title>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🎭</div>
+        <h1>Face Emotion Detection</h1>
+        <p class="subtitle">Upload your photo and let AI detect your emotion!</p>
+        
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message | safe }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Form -->
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Upload Your Photo *</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="image" name="image" accept="image/*" required onchange="displayFileName()">
+                    <label for="image" class="file-input-label">
+                        📷 Click to upload image
+                    </label>
+                </div>
+                <div class="file-name" id="file-name"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn">🚀 Detect Emotion</button>
+        </form>
+        
+        <div class="view-data-link">
+            <a href="/view_data">📊 View All Submissions</a>
+        </div>
+    </div>
+    
+    <script>
+        function displayFileName() {
+            const input = document.getElementById('image');
+            const fileNameDisplay = document.getElementById('file-name');
+            
+            if (input.files.length > 0) {
+                fileNameDisplay.textContent = '✅ ' + input.files[0].name;
+            } else {
+                fileNameDisplay.textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>
