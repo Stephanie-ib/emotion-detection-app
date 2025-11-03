@@ -4,6 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Emotion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #000;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 8px;
+            border: 1px dashed #000;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #f9f9f9;
+            text-align: center;
+            width: 100%;
+        }
+
+        .file-name {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #000;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            background: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #f2f2f2;
+        }
+
+        .view-data-link {
+            margin-top: 20px;
+        }
+
+        .view-data-link a {
+            text-decoration: none;
+            color: #000;
+            border-bottom: 1px solid #000;
+        }
+
+        .flash-messages {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .alert {
+            padding: 8px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            background: #f9f9f9;
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
