@@ -41,12 +41,20 @@ MODEL_PATH = 'face_emotionModel.h5'
 # ================================
 print("🔄 Loading emotion detection model...")
 try:
-    model = keras.models.load_model(MODEL_PATH)
+    # Load without optimizer to handle TensorFlow version differences
+    model = keras.models.load_model(MODEL_PATH, compile=False)
+    
+    # Recompile with fresh optimizer
+    model.compile(
+        optimizer=keras.optimizers.Adam(learning_rate=0.0001),
+        loss='categorical_crossentropy',
+        metrics=['accuracy']
+    )
     print("✅ Model loaded successfully!")
 except Exception as e:
     print(f"❌ Error loading model: {e}")
     model = None
-
+    
 # ================================
 # DATABASE SETUP
 # ================================
